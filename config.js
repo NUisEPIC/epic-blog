@@ -12,9 +12,15 @@ config = {
     production: {
         url: 'http://my-ghost-blog.com',
         mail: {},
+        fileStorage:false,
         database: {
-            client: 'sqlite3',
+            client: 'postgres',
             connection: {
+                host: 'ec2-54-83-204-104.compute-1.amazonaws.com',
+                user: 'aigqlfagjrrvqt',
+                password: 'kW54reF1jbnkdai3YbIQGAV4Lc',
+                database: 'd6g0eq37o59ir',
+                port:'5432'
                 filename: path.join(__dirname, '/content/data/ghost.db')
             },
             debug: false
@@ -22,9 +28,9 @@ config = {
 
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: '127.0.0.1',
+            host: '0.0.0.0',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: '2368'
+            port: 'process.env.PORT'
         }
     },
 
@@ -58,9 +64,9 @@ config = {
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: '127.0.0.1',
+            host: '0.0.0.0',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: '2368'
+            port: 'process.env.PORT'
         },
         paths: {
             contentPath: path.join(__dirname, '/content/')
