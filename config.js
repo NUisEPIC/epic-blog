@@ -11,8 +11,17 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://my-ghost-blog.com',
-        mail: {},
+        url: 'http://fiddlenaut.io/blog/',
+        mail: {
+            transport: 'SMTP',
+            options: {
+		service: 'Mailgun',
+		auth: {
+			user: 'postmaster@nuisepic.com',
+			pass: '09b9804afbabb342ebe995835a3a4e2d'
+		}
+            }
+        },
         database: {
             client: 'sqlite3',
             connection: {
@@ -22,7 +31,7 @@ config = {
         },
 
         server: {
-            host: '127.0.0.1',
+            host: 'localhost',
             port: '2368'
         }
     },
